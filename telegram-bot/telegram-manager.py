@@ -60,7 +60,7 @@ async def start_browser(update: Update, context):
       -H "Accept: application/vnd.github+json" \
       -H "Authorization: Bearer {GITHUB_TOKEN}" \
       -H "X-GitHub-Api-Version: 2022-11-28" \
-      https://api.github.com/repos/dikeckaan/neko-actions/actions/workflows/telegram-bot.yml/dispatches \
+      https://api.github.com/repos/feedpie/neko-actions/actions/workflows/telegram-bot.yml/dispatches \
       -d '{{"ref": "master", "inputs": {{ "chatid": "{chat_id}", "image": "{image_name}", "bottoken": "{BOT_TOKEN}" }} }}'
     '''
     print(f'Generated command: {command}')
@@ -73,7 +73,7 @@ async def stop_machine(run_id: str, query):
       -H "Accept: application/vnd.github+json" \
       -H "Authorization: Bearer {GITHUB_TOKEN}" \
       -H "X-GitHub-Api-Version: 2022-11-28" \
-      https://api.github.com/repos/dikeckaan/neko-actions/actions/runs/{run_id}/cancel
+      https://api.github.com/repos/feedpie/neko-actions/actions/runs/{run_id}/cancel
     '''
     response = run_curl_command(command)
     await query.edit_message_text(f"🟠 Machine with Run ID {run_id} is being stopped!\n{response}")
